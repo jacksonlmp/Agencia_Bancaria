@@ -1,2 +1,2 @@
 # Agencia_Bancaria
-Projeto da Disciplina de Banco de Dados no PLE 2020.4
+Projeto de uma AgÊncia Bancaria da Disciplina de Banco de Dados no PLE 2020.4
