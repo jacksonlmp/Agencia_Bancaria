@@ -44,3 +44,4 @@ CREATE TABLE depositante(
     PRIMARY KEY(nome_cliente, num_conta),
     FOREIGN KEY(nome_cliente) REFERENCES cliente(nome_cliente),
     FOREIGN KEY(num_conta) REFERENCES conta(num_conta)
+);
