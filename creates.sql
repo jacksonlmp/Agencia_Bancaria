@@ -3,7 +3,7 @@ CREATE DATABASE agencia_bancaria;
 CREATE TABLE agencia(
 	nome_agencia varchar(50) NOT NULL,
     cidade_agencia varchar(50) NOT NULL,
-    ativos int NOT NULL,
+    ativos double NOT NULL,
     PRIMARY KEY(nome_agencia)
 );
 
@@ -17,7 +17,7 @@ CREATE TABLE cliente(
 CREATE TABLE emprestimo(
 	num_empre int NOT NULL,
     nome_agencia varchar(50) NOT NULL,
-    valor int,
+    valor double,
     PRIMARY KEY(num_empre),
     FOREIGN KEY(nome_agencia) REFERENCES agencia(nome_agencia)
 );
