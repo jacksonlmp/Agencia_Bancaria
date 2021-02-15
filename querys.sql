@@ -14,16 +14,15 @@ where e.num_empre = t.num_empre and t.nome_cliente = 'Peter';
 #Ache todos os clientes que possuem uma conta com empréstimo em todas as
 #agências localizadas em Brooklyn.
 
-select DISTINCT nome_cliente
-from tomador
-where nome_cliente in
-(select t.nome_cliente
-from emprestimo e, agencia a, tomador t
-where e.nome_agencia = a.nome_agencia and a.cidade_agencia = 'Brooklyn' and t.num_empre = e.num_empre)
-and nome_cliente in 
-(select d.nome_cliente
-from conta c, depositante d, agencia a
-where c.nome_agencia = a.nome_agencia and c.num_conta = d.num_conta and a.cidade_agencia = 'Brooklyn');
+SELECT c.nome_cliente
+FROM cliente c 
+WHERE (SELECT count(distinct(a1.nome_agencia)) FROM cliente c1 
+JOIN tomador t1 on t1.nome_cliente = c1.nome_cliente
+JOIN emprestimo e1 on e1.num_empre = t1.num_empre
+JOIN agencia a1 on e1.nome_agencia = a1.nome_agencia 
+WHERE a1.cidade_agencia = 'Brooklyn'
+AND c1.nome_cliente = c.nome_cliente) = (SELECT count(*) 
+FROM agencia WHERE cidade_agencia = 'Brooklyn');
 
 
 #Ache o cliente que tem a conta com maior saldo.
