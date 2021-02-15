@@ -18,7 +18,7 @@ SELECT c.nome_cliente
 FROM cliente c 
 WHERE (SELECT count(distinct(a1.nome_agencia)) FROM cliente c1 
 JOIN tomador t1 on t1.nome_cliente = c1.nome_cliente
-JOIN emprestimo e1 on e1.num_empre = t1.num_empre
+JOIN emprestimo e1 on e1.num_emprestimo = t1.num_emprestimo
 JOIN agencia a1 on e1.nome_agencia = a1.nome_agencia 
 WHERE a1.cidade_agencia = 'Brooklyn'
 AND c1.nome_cliente = c.nome_cliente) = (SELECT count(*) 
