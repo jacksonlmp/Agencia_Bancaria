@@ -36,10 +36,9 @@ WHERE c.saldo = (SELECT MAX(c1.saldo) FROM conta c1);
 
 #Ache o cliente que tem o maior valor de soma de empréstimos.
 
-SELECT distinct (t.nome_cliente) as nome, (SELECT sum(e1.valor) 
-FROM emprestimo e1 
-JOIN tomador t1 on e1.num_empre = t1.num_empre 
-WHERE t.nome_cliente = t1.nome_cliente) as soma
-FROM emprestimo e
-JOIN tomador t on e.num_empre = t.num_empre order by soma DESC LIMIT 1;
-
+SELECT t.nome_cliente
+from emprestimo e, tomador t  
+where e.num_empre = t.num_empre 
+GROUP BY nome_cliente 
+order by sum(valor) desc
+LIMIT 1;
