@@ -28,7 +28,11 @@ INSERT INTO emprestimo
 (5, 'Echo', 6000),
 (6, 'Fox', 2000),
 (7, 'Gama', 15000.20),
-(8, 'Echo', 13000.50);
+(8, 'Echo', 13000.50)
+(9, 'Alfa', 2000),
+(10, 'Bravo', 3000),
+(11, 'Bravo', 1500),
+(12, 'Echo', 4200);
 
 INSERT INTO tomador
 (nome_cliente, num_empre) values
@@ -39,8 +43,11 @@ INSERT INTO tomador
 ('Laura' ,5),
 ('Peter' ,6),
 ('Ana Maria' ,7),
-('Felipe' ,8);
-
+('Felipe' ,8),
+('Laura', 9),
+('Laura', 10),
+('Janderson', 11),
+('Janderson', 12);
 
 INSERT INTO conta
 (num_conta, nome_agencia, saldo) values
